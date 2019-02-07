@@ -1,0 +1,105 @@
+# type Mutation {
+#   createpaymentconfirmation(id: ID! @id
+#   payeeProxyId: String!
+#   payeeProxyType: String!
+#   payeeAccountNumber: String!
+#   payeeName: String!
+#   payerProxyId: String!
+#   payerProxyType: String!
+#   payerAccountNumber: String!
+#   payerName: String!
+#   sendingBankCode: String!
+#   receivingBankCode: String!
+#   amount: Float!
+#   transactionId: String!
+#   transactionDateandTime: String!
+#   billPaymentRef1: String!
+#   billPaymentRef3: String!
+#   currencyCode: Int!): paymentconfirmation
+# }
+
+type Mutation {
+  create( payeeProxyId: String!
+  payeeProxyType: String!
+  payeeAccountNumber: String!
+  payeeName: String!
+  payerProxyId: String!
+  payerProxyType: String!
+  payerAccountNumber: String!
+  payerName: String!
+  sendingBankCode: String!
+  receivingBankCode: String!
+  amount: Float!
+  transactionId: String!
+  transactionDateandTime: String!
+  billPaymentRef1: String!
+  billPaymentRef3: String!
+  currencyCode: Int!
+  resCode: Int
+  resDesc: String): paymentconfirmation
+}
+
+input paymentconfirmationCreateInput {
+  payeeProxyId: String!
+  payeeProxyType: String!
+  payeeAccountNumber: String!
+  payeeName: String!
+  payerProxyId: String!
+  payerProxyType: String!
+  payerAccountNumber: String!
+  payerName: String!
+  sendingBankCode: String!
+  receivingBankCode: String!
+  amount: Float!
+  transactionId: String!
+  transactionDateandTime: String!
+  billPaymentRef1: String!
+  billPaymentRef3: String!
+  currencyCode: Int!
+  resCode: Int
+  resDesc: String
+}
+
+type Query {
+  get: paymentconfirmation
+}
+
+enum MutationType {
+  CREATED
+  # UPDATED
+  # DELETED
+}
+
+type paymentconfirmationSubscriptionPayload {
+  mutation: MutationType!
+}
+
+input paymentconfirmationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+}
+
+type Subscription {
+  paymentconfirmation(where: paymentconfirmationSubscriptionWhereInput): paymentconfirmationSubscriptionPayload
+}
+
+type paymentconfirmation {
+  id: ID!
+  payeeProxyId: String!
+  payeeProxyType: String!
+  payeeAccountNumber: String!
+  payeeName: String!
+  payerProxyId: String!
+  payerProxyType: String!
+  payerAccountNumber: String!
+  payerName: String!
+  sendingBankCode: String!
+  receivingBankCode: String!
+  amount: Float!
+  transactionId: String!
+  transactionDateandTime: String!,
+  billPaymentRef1: String!
+  billPaymentRef3: String!
+  currencyCode: Int!
+  resCode: Int
+  resDesc: String
+}

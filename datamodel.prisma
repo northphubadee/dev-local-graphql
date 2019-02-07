@@ -1,0 +1,21 @@
+type paymentconfirmation {
+  id: ID! @id
+  payeeProxyId: String!
+  payeeProxyType: String!
+  payeeAccountNumber: String!
+  payeeName: String!
+  payerProxyId: String!
+  payerProxyType: String!
+  payerAccountNumber: String!
+  payerName: String!
+  sendingBankCode: String!
+  receivingBankCode: String!
+  amount: Float!
+  transactionId: String!
+  transactionDateandTime: DateTime!
+  billPaymentRef1: String!
+  billPaymentRef3: String!
+  currencyCode: Int!
+  resCode: Int! @default(value: 200)
+  resDesc: String! @default(value: "success")
+}
